@@ -1,46 +1,36 @@
-console.log("start")
 const config = require('config')
 // const fs = require('fs')
-console.log("1")
 const express = require('express')
 // const spdy = require('spdy') //for https
 const cors = require('cors') 
-// const morgan = require('morgan')
-//const TimeFormat = require('hh-mm-ss')
-// const winston = require('winston')
+const winston = require('winston')
+const {LoggingWinston} = require('@google-cloud/logging-winston')
+const { Logging } = require('@google-cloud/logging')
+
 // const DailyRotateFile = require('winston-daily-rotate-file')
 
 // config constants
-// const morganFormat = config.get('morganFormat')
 const htdocsPath = config.get('htdocsPath')
 // const privkeyPath = config.get('privkeyPath')
 // const fullchainPath = config.get('fullchainPath')
 const port = config.get('port') 
 // const mbtilesDir = config.get('mbtilesDir')
-// const logDirPath = config.get('logDirPath')
 
 
-// logger configuration
-// const logger = winston.createLogger({
-//   transports: [
-//     new winston.transports.Console(),
-//     new DailyRotateFile({
-//       filename: `${logDirPath}/server-%DATE%.log`,
-//       datePattern: 'YYYY-MM-DD'
-//     })
-//   ]
-// })
-
-// logger.stream = {
-//   write: (message) => { logger.info(message.trim()) }
-// }
+// Create a Winston logger that streams to Stackdriver Logging
+// Logs will be written to: "projects/YOUR_PROJECT_ID/logs/winston_log"
+const loggingWinston = new LoggingWinston()
+const logger = winston.createLogger({
+    level: 'info',
+    transports: [
+        new winston.transports.Console(),
+        loggingWinston,
+    ],
+})
 
 // app
 const app = express()
 app.use(cors())
-// app.use(morgan(morganFormat, {
-//   stream: logger.stream
-// }))
 app.use(express.static(htdocsPath))
 
 //for http
