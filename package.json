@@ -3,16 +3,18 @@
     "description": "Simple hello world sample in Node",
     "version": "1.0.0",
     "private": true,
-    "main": "index.js",
+    "main": "app0.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node app0.js"
     },
     "engines": {
         "node": ">= 12.0.0"
     },
-    "author": "Google LLC",
+    "author": "",
     "license": "Apache-2.0",
     "dependencies": {
+        "config": "^3.3.7",
+        "cors": "^2.8.5",
         "express": "^4.17.1"
     }
 }
