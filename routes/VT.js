@@ -73,7 +73,7 @@ router.get(`/zxy/:t/:z/:x/:y.pbf`, async function (req, res) {
   const x = parseInt(req.params.x);
   const y = parseInt(req.params.y);
 
-  logger.info("get tile %s, %d, %d, %d", t, z, x, y);
+  logger.info(`get tile ${t}, ${z}, ${x}, ${y}`);
 
   getMBTiles(t, z, x, y)
     .then((mbtiles) => {
