@@ -6,11 +6,10 @@ const cors = require("cors");
 const MBTiles = require("@mapbox/mbtiles");
 const winston = require("winston");
 const { LoggingWinston } = require("@google-cloud/logging-winston");
-// const TimeFormat = require("hh-mm-ss");
 
 // config constants
 const mbtilesDir = config.get("mbtilesDir");
-//
+
 // global variables
 let mbtilesPool = {};
 let busy = false;
