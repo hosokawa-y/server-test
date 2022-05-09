@@ -9,3 +9,13 @@ mbtileの取得は[tippecanoe](https://github.com/mapbox/tippecanoe)を利用
 ```
 node app0.js 
 ```
+
+## get tiles from mbtiles
+```
+http://localhost:8080/VT/zxy/sample/{z}/{x}/{y}.pdf
+```
+
+e.g.
+```
+http://localhost:8080/VT/zxy/sample/0/0/0.pdf
+```
