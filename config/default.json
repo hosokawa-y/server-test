@@ -4,5 +4,5 @@
     "privkeyPath": "./key/privkey.pem",
     "fullchainPath": "./key/cert.pem",
     "port": 8080,
-    "mbtilesDir": "mbtiles"
+    "mbtilesDir": "tileserver"
 }

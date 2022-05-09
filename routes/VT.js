@@ -110,7 +110,7 @@ router.get(`/zxy/:t/:z/:x/:y.pbf`, async function (req, res) {
       res
         .status(404)
         .send(`mbtiles not found for /zxy/${t}/${z}/${x}/${y}.pbf`);
-      logger.error(`tmbtiles not found for /zxy/${t}/${z}/${x}/${y}.pbf`);
+      logger.error(`mbtiles not found for /zxy/${t}/${z}/${x}/${y}.pbf`);
     });
 });
 
