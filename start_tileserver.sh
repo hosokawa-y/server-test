@@ -1,5 +1,9 @@
 #!/bin/bash
 
 echo "start tileserver_gl..."
+echo $(pwd)
+echo $(ls)
 cd tileserver
-docker run --rm -it -v $(pwd):/data -p 30002:80 maptiler/tileserver-gl
+echo $(pwd)
+docker 
+docker run --rm -d -it -v $(pwd):/data -p 8080:80 maptiler/tileserver-gl
